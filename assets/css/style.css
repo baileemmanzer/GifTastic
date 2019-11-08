@@ -1,0 +1,17 @@
+body{
+	height:100%;
+	width:100%;
+}
+
+.form-1{
+    font-family: "helvetica";
+	font-size: 18px;
+	font-weight: 800;
+    color: #ff88ff;
+    margin-top: 100px;
+}
+
+#animal-gif{
+	margin-top: 1.5px;
+	width: 100%;
+}

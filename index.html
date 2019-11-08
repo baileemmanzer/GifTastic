@@ -3,23 +3,49 @@
 
   <head>
     <meta charset="UTF-8">
-    <title>GIPHY</title>
+    <title>GIPH-TASTIC</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
     <body>
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <div class = "row">
+        <div id = "button-container" class = "solid-border">
+        </div>
+    </div>
+    <div class = "row">
+        <div id = "container" class = "col">
+        </div>
+        <div class = "col">
+        </div>
+        <div class = "col">
+            <form id="form-1">
+                <label for="animal-input">Search for an animal</label>
+                <input type="text" id="animal-input"><br>
+                <!-- This button will trigger our AJAX call -->
+                <input id="find-animal" type="submit" value="Animal Search">
+            </form>
+            <!-- <form class="form-1">
+                ADD AN ANIMAL:
+                <input type = "text" name = "animalName" id = "animal-gif" class="form-1">
+            <div class="button">
+                <input type = "submit" value = "Submit" class = "btn" id = "submit">
+            </div>
+            </form> -->
+            <div id="animal-view"></div>
+             <!-- Jquery -->
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+             <!-- Script -->
+             <script src="assets/javascript/app.js">
+            
+            var animals = ["Koala Bear", "Dinosaur", "Giraffe"];
+           
 
-
-
-
-
-
-    <!-- Script -->
-    <script src="assets/javascript/app.js"></script>   
+        
+        </script> 
+        </div>
+        </div>  
     </body>
 </html>
