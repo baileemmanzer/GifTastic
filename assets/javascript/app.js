@@ -21,12 +21,19 @@ function displayAnimalGif(){
         for (var i = 0; i < results.length; i++) {
             //Creat newDiv to store the GIF
             var newDiv = $("<div>");
-            //Create image tag to hold GIF?
+
+            //Create image tag to hold GIF
             var gifImage = $("<img class = animalGifs>").attr("src", results[i].images.original_still.url);
           
             //Append gifImage to the newDiv
             newDiv.append(gifImage);
-           
+
+            //Prepend rating to where the gifs go 
+            var ratingP = $("<p>");
+            ratingP.text("Rating: " + results[i].rating);
+            newDiv.append(ratingP);
+
+            //Putting the gifs in the newDiv
             $("#gifsGoHere").prepend(newDiv);
         }
     });
