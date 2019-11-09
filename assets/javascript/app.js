@@ -1,8 +1,9 @@
-var animal = "Giraffe"
-// var topics = ["Koala Bear", "Dinosaur", "Giraffe", "Cat", "Dog", "Chicken"];
+var topics = ["Koala Bear", "Dinosaur", "Giraffe", "Cat", "Dog", "Chicken"];
+
+$(document.body).on('click', '.topics', displayAnimalGif)
 
 function displayAnimalGif(){
-    $(document.body).on('click', '.animal', displayAnimalGif)
+    var animal = $(this).attr("value");
     console.log(animal);
     //Storing our giphy API URL for a random animal giph
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + animal + "&api_key=1pDt2txaHIeBAvZSB9aasrgBlKM3Of6A&limit=10&offset=0&rating=G&lang=en";
@@ -14,14 +15,14 @@ function displayAnimalGif(){
         url: queryURL,
         method: "GET",
     }).then(function(response){
-        // console.log(response);
+        console.log(response);
         var results = response.data;
         //Loop GIPHY results
         for (var i = 0; i < results.length; i++) {
             //Creat newDiv to store the GIF
             var newDiv = $("<div>");
             //Create image tag to hold GIF?
-            var gifImage = $("<img>").attr("src", queryURL);
+            var gifImage = $("<img>").attr("src", results[i].images.original_still.url);
           
             //Append gifImage to the newDiv
             newDiv.append(gifImage);
@@ -29,6 +30,12 @@ function displayAnimalGif(){
             $("#gifsGoHere").prepend(newDiv);
         }
     });
+}
+
+function movingGif (){
+    var movingStuff = $(this).attr("src");
+    movingStuff = movingStuff.replace("original_s.gif", "original.gif");
+    $(this).attr("src", movingStuff);
 }
 
 function renderButtons (){
@@ -39,9 +46,9 @@ function renderButtons (){
 
       var a = $("<button>");
       // Adding a class of gif-btn to our button
-      a.addClass("gif-btn");
+      a.addClass("topics");
       // Adding a data-attribute
-      a.attr("data-name", topics[i]);
+      a.attr("value", topics[i]);
       // Providing the text for button
       a.text(topics[i]);
       // Adding the button to the buttons-view div
@@ -49,6 +56,8 @@ function renderButtons (){
     }
 }
 
-
-
-   
+$(document).ready(function () {
+    renderButtons();
+    //Call on my gifs to move (movingGif)
+    
+});
