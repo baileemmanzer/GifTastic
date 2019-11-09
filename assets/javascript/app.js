@@ -1,4 +1,4 @@
-var topics = ["Koala Bear", "Dinosaur", "Giraffe", "Cat", "Dog", "Chicken"];
+var topics = ["KOALA BEAR", "DINOSAUR", "GIRAFFE", "CAT", "DOG", "CHICKEN"];
 
 $(document.body).on('click', '.topics', displayAnimalGif)
 
@@ -22,7 +22,7 @@ function displayAnimalGif(){
             //Creat newDiv to store the GIF
             var newDiv = $("<div>");
             //Create image tag to hold GIF?
-            var gifImage = $("<img>").attr("src", results[i].images.original_still.url);
+            var gifImage = $("<img class = animalGifs>").attr("src", results[i].images.original_still.url);
           
             //Append gifImage to the newDiv
             newDiv.append(gifImage);
@@ -34,8 +34,9 @@ function displayAnimalGif(){
 
 function movingGif (){
     var movingStuff = $(this).attr("src");
-    movingStuff = movingStuff.replace("original_s.gif", "original.gif");
-    $(this).attr("src", movingStuff);
+    var newMovingStuff = movingStuff.replace("giphy_s.gif", "giphy.gif");
+    console.log(newMovingStuff);
+    $(this).attr("src", newMovingStuff);
 }
 
 function renderButtons (){
@@ -59,5 +60,10 @@ function renderButtons (){
 $(document).ready(function () {
     renderButtons();
     //Call on my gifs to move (movingGif)
-    
+    $(document.body).on("click", ".animalGifs", movingGif);
+    $(".submit-button").on("click", function (event){
+        event.preventDefault();
+        topics.push($("#animal-input").val());
+        renderButtons();
+    });
 });
