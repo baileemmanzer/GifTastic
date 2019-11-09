@@ -1,4 +1,4 @@
-var topics = ["KOALA BEAR", "DINOSAUR", "GIRAFFE", "CAT", "DOG", "CHICKEN"];
+var topics = ["KOALA BEAR", "KITTY", "DINOSAUR", "GIRAFFE", "CAT", "DOG", "CHICKEN", "KITTEN"];
 
 $(document.body).on('click', '.topics', displayAnimalGif)
 
